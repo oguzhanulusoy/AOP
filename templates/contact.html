@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block extra_css%}
+	 input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    input[type=clean] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=clean]:hover {
+        background-color: #45a049;
+    }
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+{% endblock extra_css%}
+
+{% block content %}
+
+  <p>Bizimle her türlü konu hakkında iletişime geçebilirsiniz. Mesajlarınız 1 ilâ 3 gün arasında cevaplanmaktadır.</p>
+
+    <h2>Teşekkür ederiz!</h2>
+
+    <div class="container">
+      <form action="#">
+
+        <label for="name">Adınız: </label>
+        <input type="text" id="name" name="fullname" placeholder="Donald Trump">
+
+        <label for="mail">E-mail adresiniz: </label>
+        <input type="text" id="mail" name="mail" placeholder="person@example.com">
+
+        <label for="title">Konu: </label>
+        <select id="title" name="title">
+          <option value="reklam">Reklam</option>
+          <option value="sikayet">Şikayet</option>
+          <option value="sponsorluk">Sponsorluk</option>
+          <option value="oneri">Öneri</option>
+      </select>
+
+      <label for="message">Mesajınız</label>
+      <textarea id="message" name="message" placeholder="Ne söylemek istersiniz?" style="height:200px"></textarea>
+
+      <input type="submit" value="Gönder">
+
+  </form>
+
+{% endblock content %}

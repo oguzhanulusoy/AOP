@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block extra_search%}
+
+table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+
+	input[type=text] {
+		width: 130px;
+		-webkit-transition: width 0.8s ease-in-out;
+		transition: width 0.8s ease-in-out;
+	}
+
+	input[type=text]:focus {
+		width: 100%;
+	}
+
+{% endblock extra_search%}
+
+
+{% block content %}
+
+			<p>Aramak istediğiniz her şeyi yazabilirsiniz: <input type="text" name="search" placeholder="buraya yazın"> </p>
+
+{% endblock content %}
+
+

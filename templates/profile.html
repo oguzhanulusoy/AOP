@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Selam {{ user.username }}! <br>Hesabınla ilgili detayları aşağıda görebilir, dilersen değiştirebilirsin.</p>
+
+<h2>Kullanıcı adınız, {{ user.username }}</h2>
+
+<br>Soyisminiz: {{ user.last_name }}
+
+<br>Adınız: {{ user.first_name }}
+
+<br>E-mail adresiniz: {{ user.email }}
+
+<br>Telefon numaranız: {{ user.phone_number }}
+
+<form method="post">
+    {% csrf_token %}
+
+        {% for i in prof %}
+        <p>
+            {{ i.label_tag }}   <br>
+            {{ i }}
+        </p>
+        {% endfor %}
+
+        <button type="submit"><a href="/show_userEdit/{{ user.pk }}">Bırak da düzelteyim</a></button>
+
+
+
+</form>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AOP : Amatör Oyun Platformu (v1.0)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'dist/css.html' %}
+    {% include 'dist/font.html' %}
+	  <style>{% block extra_css %}{% endblock extra_css %}</style>
+	  <style>{% block extra_contact %}{% endblock extra_contact %}</style>
+	  <style>{% block extra_addNewCategory %}{% endblock extra_addNewCategory %}</style>
+	  <style>{% block extra_allContent %}{% endblock extra_allContent %}</style>
+	  <style>{% block extra_search %}{% endblock extra_search %}</style>
+	  <style>{% block extra_displayAllMembers %}{% endblock extra_displayAllMembers %}</style>
+	  <style>{% block extra_login %}{% endblock extra_login %}</style>
+	  <style>{% block extra_deleteFile %}{% endblock extra_deleteFile %}</style>
+	  <style>{% block extra_log %}{% endblock extra_log %}</style>
+
+  </head>
+  <body>
+
+  <header>
+		<div class="logo">
+			<a href="/allContent"><img src="/static/img/logo.ico" title="SE311" alt="SE311" width="75px" height="75px"/></a>
+		</div>
+
+		<div id="menu_icon"></div>
+		<nav>
+			<ul>
+				{% if user.is_authenticated %}
+				<li><a href="/">Ana Sayfa</a></li>
+				<li><a href="/upload">Sende Gönder!</a></li>
+				<li><a href="/allContent">Tüm Oyunlar</a></li>
+				<li><a href="/about/">Hakkımızda</a></li>
+				<li><a href="/faq">SSS</a></li>
+				<li><a href="/contact">İletişim</a></li>
+				<li><a href="/show_profile/{{user.id}}/">Hesabım</a></li>
+				<li><a href="/logout">Çıkış Yap!</a></li>
+    			{% else %}
+				<li><a href="/">Ana Sayfa</a></li>
+				<li><a href="/register">Kayıt Ol!</a></li>
+				<li><a href="/login">Üye Girişi</a></li>
+				<li><a href="/allContent">Tüm Oyunlar</a></li>
+				<li><a href="/about/">Hakkımızda</a></li>
+				<li><a href="/faq">SSS</a></li>
+				<li><a href="/contact">İletişim</a></li>
+				{% endif %}
+			</ul>
+
+		</nav>
+
+	</div >
+    </header>
+
+
+  <section class="main clearfix">
+
+	<section class="top">
+		<!-- style kodu için başlangıç -->
+		<div class="wrapper content_header clearfix">
+			<!-- navigator için başlangıç -->
+			<div class="work_nav">
+
+				<ul class="btn clearfix">
+					<li><a href="/allContent" class="previous" data-title="Önceki"></a></li>
+					<li><a href="/home" class="grid" data-title="Anasayfa"></a></li>
+					<li><a href="/allContent" class="next" data-title="Sonraki"></a></li>
+				</ul>
+
+			</div>
+			<!-- Sayfa başlığı için başlangıç -->
+			<h1 class="title">AOP (beta v1.0)</h1>
+		</div>
+	</section>
+
+	<section class="wrapper">
+		<div class="content">
+		{% block content %}
+
+			{% block iframe %}
+
+			{% endblock iframe %}
+
+       {% endblock content %}
+
+		</div>
+	</section>
+</section>
+
+    {% include 'dist/js.html' %}
+  </body>
+</html>

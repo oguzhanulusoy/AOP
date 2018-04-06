@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>{{ post.title }}</h2>
+    Yükleyen: {{ post.creator }} (Gizlenmiş)
+    <br>Tarih: {{ post.uploaded_at }}
+    <br>Kategori: {{ post.category }}
+    <br>
+    Oyun hakkında: {{ post.description }}
+
+    <br>
+    <br>
+    <br>
+    <h2>İyi eğlenceler! :)</h2>
+
+{{ post.pk }}
+
+{{ post.document.name }}
+
+
+        {% block iframe %}
+    <iframe width="850" height="600" src="/{{ post.fileName }}/index.html" name="iframe_a"></iframe>
+        {% endblock iframe %}
+
+{% endblock %}
+

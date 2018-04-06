@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block extra_allContent%}
+table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 3px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+{% endblock extra_allContent%}
+
+{% block message %}
+    {% if user.is_authenticated %}
+        <p>Hello user {{user.username}}</p>
+    {% else %}
+        <p>Please log in. </p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+        <p>İyi eğlenceler {{user.username}}</p>
+    {% else %}
+        <p>Oyunları oynayabilmek veya detaylarını görüntüleyebilmek için üye girişi yapmanız gerekmekte :)
+</p>
+    {% endif %}
+
+
+
+<h2>Tüm Oyunlar</h2>
+
+	<table>
+		<tr>
+			<th>Oyun İsmi</th>
+			<th>Kategory</th>
+		</tr>
+
+	{% for post in posts %}
+		<tr>
+			<td><p><a href="/show_post/{{post.id}}/">{{ post.title }}</a></p></td>
+			<td><p><a href="/show_post/{{post.id}}/">{{ post.category }}</a></p></td>
+		</tr>
+	</table>
+
+    {% endfor %}
+
+
+{% endblock content %}

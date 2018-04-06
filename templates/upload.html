@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p>Dosya eklemek için aşağıdaki adımları eksiksiz bir biçimde lütfen takip edin.</p>
+  <h2>Yalnızca zip dosyaları kabul edilmektedir.</h2>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Yolla!</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">Ana Sayfa'ya dön</a></p>
+{% endblock %}
